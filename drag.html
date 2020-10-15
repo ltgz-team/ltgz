@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #soutce,#target{
+      border: 1px solid red;
+      width: 200px;
+      height: 200px;
+      margin: 10px auto;
+    }
+    #target{
+      border-color: green;
+    }
+  </style>
+</head>
+<body>
+  <div id="soutce">
+    <p draggable="true" id="p">我是拖放的东西</p>
+  </div>
+  <div id="target"></div>
+  <script>
+    let pEle = document.getElementById('p');
+    pEle.addEventListener('dragstart',()=>{
+      console.log('段落拖放')
+    })
+    // 获取目标对象
+    let divEle = document.getElementById('target');
+
+// 目标元素
+    // 为目标对象添加dragenter事件
+    divEle.addEventListener('dragenter',()=>{
+      console.log('我是目标进入事件----dragenter')
+    })
+    // 
+
+
+
+    // 为原对象添加dragend事件
+    pEle.ondragend=()=>{
+      console.log("原对象结束")
+    }
+  </script>
+</body>
+</html>

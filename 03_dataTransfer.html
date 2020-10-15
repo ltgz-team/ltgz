@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #soutce,#target{
+      border: 1px solid red;
+      width: 200px;
+      height: 200px;
+      margin: 10px auto;
+    }
+    #target{
+      border-color: green;
+    }
+  </style>
+</head>
+<body>
+  <div id="soutce">
+    <p draggable="true" id="p">我是拖放的东西</p>
+  </div>
+  <div id="target"></div>
+  <script>
+    let pEle = document.getElementById('p');
+    pEle.addEventListener('dragstart',()=>{
+      console.log('段落拖放')
+    })
+    // 获取目标对象
+    let divEle = document.getElementById('target');
+
+    pEle.ondragstart=(event)=>{
+      // 
+      let dt = event.dataTransfer;
+      // console.log(dt)
+      // 利用dt对象的setData()方法将数据添加到dt中
+      dt.setData("link",event.target.innerHTML);
+    }
+    // 目标元素
+    divEle.ondragover=(event)=>{
+      event.stopPropagation();
+      event.preventDefault();
+    }
+
+    divEle.ondrop=(event)=>{
+      event.stopPropagation();
+      event.preventDefault();
+      // 获取DataTransfer对象
+      let dt  = event.dataTransfer;
+      // 获取原始的数据
+      let data = dt.getData('link') 
+      // console.log(event.dataTransfer.getData('p'))
+      event.target.innerHTML = data;
+      pEle.remove()
+    }
+  </script>
+</body>
+</html>
