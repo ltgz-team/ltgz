@@ -34,7 +34,7 @@
       let dt = event.dataTransfer;
       // console.log(dt)
       // 利用dt对象的setData()方法将数据添加到dt中
-      dt.setData("link",event.target.innerHTML);
+      dt.setData("link",event.target.innerHt);
     }
     // 目标元素
     divEle.ondragover=(event)=>{
@@ -51,7 +51,7 @@
       let data = dt.getData('link') 
       // console.log(event.dataTransfer.getData('p'))
       event.target.innerHTML = data;
-      pEle.remove()
+      // pEle.remove()
     }
   </script>
 </body>

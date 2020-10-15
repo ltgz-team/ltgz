@@ -51,8 +51,19 @@
 		// 获取所有的原对象形成的节点列表
 		let iconEles = document.querySelectorAll('.icon-item');
 		iconEles.forEach((iconEle,index)=>{
-			console.log(index)
+			// console.log(index)
+			iconEle.ondragstart=function(){
+				n = index;
+				console.log(index+ "图片可能被删除可")
+			}
 		})
+
+		// 为目标元素添加dragover事件
+		recycleEle.ondragover=(event)=>{
+			event.stopPropagation();
+			event.preventDefault();
+			iconEles[n].remove()
+		}
 		</script>
 	</body>
 </html>

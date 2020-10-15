@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <button onclick="getPosition()">点我获取定位</button>
+  <script>
+    function getPosition(){
+      // 获取谷歌对象
+      console.log('ex')
+      let geo = navigator.geolocation;
+      geo.getCurrentPosition(aaa=>{
+        console.log(aaa)
+      })
+    }
+  </script>
+</body>
+</html>
